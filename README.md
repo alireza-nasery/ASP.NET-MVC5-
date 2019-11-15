@@ -13,3 +13,8 @@ ASP.NET MVC5 for create best  Online Stores
 2. پروژه را در ویرایشگر خود باز کرده
 3. شده web.config داخل
 4. را با توجه به سرور خود تغییر دهیدconnection string 
+
+# System requirements
+- IIS 7+
+- ASP.NET 4.5+
+- MS SQL Server 2008 Express (or higher) OR MS SQL Server
