@@ -8,7 +8,7 @@ ASP.NET MVC5 for create best  Online Stores
 
 # طریقه نصب
 
-1.کرده importرا در سرور خود WebMarket.com_db.bakفایل
-2.پروژه را در ویرایشگر خود باز کرده
-3.شده web.config داخل
-4.را با توجه به سرور خود تغییر دهیدconnection string 
+1. کرده importرا در سرور خود WebMarket.com_db.bakفایل
+2. پروژه را در ویرایشگر خود باز کرده
+3. شده web.config داخل
+4. را با توجه به سرور خود تغییر دهیدconnection string 
