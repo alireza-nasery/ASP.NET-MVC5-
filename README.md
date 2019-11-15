@@ -6,5 +6,5 @@ ASP.NET MVC5 for create best  Online Stores
 - برای مشاهدهکامل لایبرری های استفاده شده فایل وب مارکت داکیومنت را دانلود کنید
 - وب سایت : www.tempmarket.ir
 
-**طریقه نصب
-را با توجه به سرور خود تغییر دهیدconnection stringشده وweb.configکنید, سپس پروژه را ور ویرایشگر خود باز کرده و داخل importرا در سرور خود WebMarket.com_db.backupفایل 
+# طریقه نصب
+را با توجه به سرور خود تغییر دهیدconnection stringشده وweb.configکنید, سپس پروژه را ور ویرایشگر خود باز کرده و داخل importرا در سرور خود WebMarket.com_db.bakفایل 
