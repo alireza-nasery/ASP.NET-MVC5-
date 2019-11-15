@@ -1,0 +1,27 @@
+//  ========== 
+//  = Modal Windows = 
+//  ========== 
+
+.modal {
+  padding: 30px 40px 10px;
+  width: 300px;
+  margin-left: -(300px + 2*40px)*0.5;
+}
+.modal-header {
+  h3 {
+    text-align: center;
+  }
+  [data-dismiss="modal"] {
+    position: absolute;
+    top: 12px;
+    right: 20px;
+  }
+}
+.modal-body {
+  padding: 20px 40px;
+  
+  .controls .checkbox {
+    padding-top: 0;
+    margin-bottom: 20px;
+  }
+}

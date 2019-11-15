@@ -1,0 +1,18 @@
+﻿
+@model IEnumerable<DataLayer.Features>
+@foreach (var item in Model)
+{
+    <div class="accordion-group" id="tourStep2">
+        <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" href="#@item.FeaturesID">@item.FeaturesName<b class="caret"></b></a>
+        </div>
+        <div id="@item.FeaturesID" class="accordion-body collapse in">
+            <div class="accordion-inner">
+                @foreach (var item_2 in item.FeaturesSummery)
+                {
+                    <a href="#" data-target=".Features_@item_2.FS_Name" class="selectable"><i class="box"></i>@item_2.FS_Name</a>
+                }
+            </div>
+        </div>
+    </div>
+}

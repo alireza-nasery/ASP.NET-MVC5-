@@ -1,0 +1,128 @@
+﻿@model DataLayer.Order_CustomerAddress
+@{
+    ViewBag.Title = "OrderDetails";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+@functions{
+    public int Count = 0;
+    public int GetCount()
+    {
+        return ++Count;
+    }
+}
+<div class="col-lg-6 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0"> اطلاعات مشتری</h4>
+        </div>
+        <div class="card-body">
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h5>زمان سفارش: @Model.CreateDate.ToPeString("dddd, dd MMMM,yyyy")</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>ایمیل :  @Model.Email</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>
+                        تایید شده:
+                        @if (Model.IsFinally)
+                        {
+                            <span class="text-success">بله</span>
+                        }
+                        else
+                        {
+                            <span class="text-danger">خیر</span>
+                        }
+                    </h5>
+                </div>
+            </div>
+            <hr />
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <h5>نام : @Model.FirstName</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>نام خانوادگی: @Model.LastName</h5>
+                </div>
+                <div class="col-md-4">
+                    <h5>شماره همراه :  @Model.PhoneNumber</h5>
+                </div>
+            </div>
+            <hr />
+            <div class="row mt-3">
+                <div class="col-md-6">
+                    <h5>ادرس : @Model.Address</h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>کدپستی: @Model.PostalCode</h5>
+                </div>
+                <div class="col-md-3">
+                    <h5>شهر:@Model.City</h5>
+                </div>
+            </div>
+            <hr />
+            <div class="row mt-3">
+                <div class="col-md-12">
+                    <h3>توضیحات</h3>
+                    <h4>
+                        @Model.Description
+                    </h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div class="col-lg-6 col-md-12">
+    <div class="card">
+        <div class="card-header card-header-primary">
+            <h4 class="card-title mt-0">اطلاعات محصولات سفارشی</h4>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="table-responsive" id="profile">
+                        <table id="orderTable" class="table table-hover">
+                            <thead class="cst-tb-center">
+                                <tr>
+                                    <th>
+                                        ردیف
+                                    </th>
+                                    <th>
+                                        نام
+                                    </th>
+                                    <th>
+                                        ویژگی ها
+                                    </th>
+                                    <th>
+                                        تعداد
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody class="cst-tb-center">
+                                @foreach (var item in Model.Order_CustomerProducts)
+                                {
+                                    <tr>
+                                        <td>
+                                            @GetCount()
+                                        </td>
+                                        <td>
+                                            @item.ProductName
+                                        </td>
+                                        <td>
+                                            @item.Features
+                                        </td>
+                                        <td>
+                                            @item.Number
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

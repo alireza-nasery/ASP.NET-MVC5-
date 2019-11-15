@@ -1,0 +1,51 @@
+//  ========== 
+//  = Defined colors for the entire Webmarket HTML template = 
+//  ========== 
+
+
+// main color of the theme
+$theme: #7bc1a1;
+
+
+// color of the main buttons 
+$mainBtns: #4892fd;
+
+
+// color of the titles
+$titles: #34353e;
+
+
+// for inputs color and footer text color
+$lightGray: #bbbbbb;
+
+
+// borders
+$borders: darken(#ededed, 5%);
+$darkBorders: #c3c2c4;
+
+
+// darker stripe - bg for latest news on the front page and bg for the breadcrumbs on the subpages
+$darkerStripe: #7e9399;
+
+
+// color of the star rating
+$stars: #f2cd00;
+$starsGray: #b9b8ba;
+
+  
+// banners on the front page
+$bannerGray: #bababa;
+$bannerColored: #9cc256;
+$bannerGrayText: #585858;
+$bannerColoredText: #3c5924;
+
+
+// other colors
+$orange: #faa328;
+$green: #a7d155;
+$blue: #2886ea;
+
+
+
+@import "master";
+

@@ -1,0 +1,338 @@
+//  ========== 
+//  = Sidebars for the Woo Market = 
+//  ==========
+
+// variables
+$gallery-side-padding: 26px;
+
+.sidebar-item {
+  margin-bottom: 30px;
+  
+  .underlined {
+    margin-bottom: 15px;
+  }
+  
+  &.widget_nav_menu {
+    background-color: darken($white, 2%);
+    @include background(linear-gradient(left, $white, darken($white, 3%)));
+    @include box-shadow(0 0 2px rgba(0,0,0,0.2));
+    padding: 24px $gallery-side-padding;
+    
+    h3 {
+      margin: 0 0 15px;
+    }
+    .nav-pills {
+      margin-bottom: 0;
+      > li {
+        > a {
+          position: relative;
+          margin-left: -$gallery-side-padding;
+          margin-right: -$gallery-side-padding - 10px;
+          @include border-radius(0);
+          padding-left: $gallery-side-padding;
+          font-weight: bold;
+          color: $textColor;
+          
+          &:hover {
+            color: $theme;
+            background: none;
+          }
+        }
+        &.active {
+          a,
+          a:hover {
+            background-color: $theme;
+            @include background(linear-gradient(top, lighten($theme, 5%), darken($theme, 10%)));
+            color: $white;
+            
+            &:before,
+            &:after {
+              position: absolute;
+              z-index: 3;
+              content: " ";
+              right: -7px;
+              background-color: $bodyBackground;
+              width: 10px;
+              height: 80%;
+            }
+            
+            &:before {
+              top: -4px;
+              @include transform(rotate(-30deg));
+            }
+            &:after {
+              bottom: -4px;
+              @include transform(rotate(30deg));
+            }
+          }
+        }
+      }
+    }
+  }
+  
+  &.widget_recent_comments {
+    ul {
+      list-style: none;
+      margin: 0;
+    }
+    ul > li {
+      margin-bottom: 10px;
+      
+      a {
+        font-weight: bold;
+      }
+    }
+  }
+  &.widget_archive {
+    ul {
+      list-style: none;
+      margin: 0;
+      
+      li {
+        margin: 2px 0;
+      }
+    }
+  }
+  
+  // search
+  &.widget_search {
+    .form {
+      @extend %search-form;
+      
+      button[type="submit"] {
+        top: 4px;
+        right: 0;
+      }
+      input[type="text"] {
+        padding-right: 28px;
+      }
+    }
+  }
+  
+  // flickr widget
+  .flickr-badge {
+    margin-left: -3.33%;
+    
+    a {
+      display: block;
+      width: 30%;
+      margin: 0 0 3.33% 3.33%;
+      float: left;
+      
+      img {
+        width: 100%;
+        @include border-radius(3px);
+      }
+    }
+  }
+}
+
+// filters
+.sidebar-filters {
+  .accordion-toggle {
+    text-transform: uppercase;
+    color: $black;
+    padding: 10px 0;
+    
+    &.collapsed {
+      .caret {
+        @include rotate(-90deg);
+      }
+    }
+  }
+  .caret {
+    vertical-align: middle;
+    margin-left: 5px;
+    @include transition(all 0.2s linear);
+  }
+  .accordion-inner {
+    border-top: none;
+    padding: 0 0 10px 0;
+  }
+  .accordion-group {
+    position: relative;
+    margin: 0;
+    
+    &:after {
+      @extend %small-line;
+    }
+    
+    &:last-child:after {
+      display: none;
+    }
+  }
+  .selectable {
+    color: $navbarLinkColor;
+    display: block;
+    margin: 3px 0;
+    
+    &:hover,
+    &:focus {
+      text-decoration: none;
+      color: $theme;
+    }
+    
+    &.selected {
+      color: $black;
+      font-weight: bold;
+      
+      .box {
+        @include box-shadow(none);
+        background-color: $theme;
+        border-color: $theme;
+      }
+    }
+  }
+  .max-val,
+  .min-val {
+    text-align: center;
+    font-weight: bold;
+    padding: 3px;
+    width: 33%;
+    cursor: default;
+  }
+  .remove-filter {
+    font-size: 14px;
+    font-weight: bold;
+    display: inline-block;
+    margin: 10px 0;
+    color: $red;
+  }
+}
+
+// vertical menus for sidebar
+.nav-pills.nav-stacked {
+  margin-top: 10px;
+  border-top: 1px solid $borders;
+  
+  %active-stacked-pills {
+    
+  }
+  
+  > li {
+    > a {
+      @include border-radius(0);
+      background: $grayLighter;
+      border: 1px solid $borders;
+      border-top: none;
+      margin: 0;
+      color: $titles;
+      @include transition(background .2s ease);
+      padding: 12px 16px;
+      font-size: 12px;
+      color: darken($navbarLinkColor, 5%);
+      
+      > .icon-caret-right {
+        @include opacity(0);
+        @include transition(opacity .2s ease);
+      }
+      
+      &:hover,
+      &:active {
+        font-weight: bold;
+        background: lighten($grayLighter, 3%);
+        
+        > .icon-caret-right {
+          @include opacity(100);
+        }
+      }
+    }
+    &.active > a {
+      background-color: $bodyBackground;
+      font-weight: bold;
+      border-right: none;
+      border-left: 3px solid $theme;
+      color: $titles;
+      padding-left: 14px;
+      
+      &:hover,
+      &:active {
+        color: $titles;
+      }
+    }
+  }
+}
+// menu affix
+.affix {
+  top: 70px;
+}
+.affix-bottom {
+  position: absolute;
+  top: auto;
+}
+
+
+// opening times widget
+.opening-time {
+  .time-table {
+    @extend %opensans;
+  }
+  .week-day {
+    padding: 10px;
+    @include border-radius(3px);
+    margin: 0;
+    background-color: $grayLighter;
+    
+    &.light-bg {
+      background: none;
+    }
+    
+    dt {
+      width: 50%;
+      float: left;
+      font-weight: normal;
+    }
+    dd {
+      text-align: right;
+    }
+    
+    &.closed {
+      dt,
+      dd {
+        color: $grayLight;
+      }
+    }
+    &.today {
+      font-weight: bold;
+      
+      dt {
+        color: $theme;
+        font-weight: bold;
+      }
+    }
+  }
+}
+
+
+// wp specific
+#wp-calendar {
+  width: 100%;
+  text-align: center;
+  
+  caption {
+    background-color: $theme;
+    color: #fff;
+    font-weight: bold;
+    @include border-radius(3px 3px 0 0);
+  }
+  tbody td {
+    text-align: center;
+  }
+}
+
+// wp
+.widget_rss {
+  .bolded-line {
+    display: none;
+  }
+  .lined {
+    clear: both;
+    overflow: auto;
+    
+    .rsswidget {
+      float: left;
+      margin-right: 5px;
+      margin-bottom: 10px;
+    }
+  }
+}

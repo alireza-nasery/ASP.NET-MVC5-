@@ -1,0 +1,88 @@
+﻿@model DataLayer.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/UserPanel/Views/Shared/_Layout.cshtml";
+}
+@functions{
+    public string GetSRC(byte[] image)
+    {
+        if (image == null)
+        {
+            return string.Empty;
+        }
+        else
+        {
+            return string.Format("data:image;base64,{0}", Convert.ToBase64String(Model.Picture));
+        }
+    }
+}
+<div class="row">
+    <div class="col-md-12">
+        <div class="card card-plain">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title mt-0">اطلاعات کاربری </h4>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+                        <div class="card">
+                            <img class="card-img-top" src="@GetSRC(Model.Picture)">
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>نام</td>
+                                        <td>@Model.FirstName</td>
+                                        <td>نام خوانوادگی</td>
+                                        <td>@Model.LastName</td>
+                                    </tr>
+                                    <tr>
+                                        <td>ادرس</td>
+                                        <td>@Model.Address</td>
+                                        <td>شماره تماس</td>
+                                        <td>@Model.PhonNumber</td>
+                                    </tr>
+                                    <tr>
+                                        <td>نام کاربری</td>
+                                        <td>@Model.Usename</td>
+                                        <td>ایمیل</td>
+                                        <td>@Model.Email</td>
+                                    </tr>
+                                    <tr>
+                                        <td>تاریخ ثبت نام</td>
+                                        <td>@Model.RegisterDate.ToPeString("dddd, dd MMMM,yyyy")</td>
+                                        <td>سن</td>
+                                        <td>52</td>
+                                    </tr>
+                                    <tr>
+                                        <td>وضیعییت</td>
+                                        @if (Model.IsActive)
+                                        {
+                                            <td>فعال</td>
+                                        }
+                                        else
+                                        {
+                                            <td>غیرفعال</td>
+                                        }
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <a href="@Url.Action("ProfileComplete","Home",new { id=Model.ID})">
+                                    <button class="btn btn-primary">ویرایش</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

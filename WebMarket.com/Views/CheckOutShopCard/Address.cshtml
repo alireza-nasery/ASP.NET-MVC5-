@@ -1,0 +1,107 @@
+﻿@model DataLayer.Order_CustomerAddress
+@{
+    ViewBag.Title = "Address";
+    Layout = "~/Views/Shared/_CheckOutShopLayout.cshtml";
+}
+<style>
+    .text-danger{
+        color:#ec3939;
+    }
+</style>
+<!--  ==========  -->
+<!--  = Shipping addr form =  -->
+<!--  ==========  -->
+
+@using (Html.BeginForm("Address", "CheckOutShopCard", FormMethod.Post, new { @class = "form-horizontal form-checkout" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="control-group">
+        @Html.LabelFor(m => Model.FirstName, new { @class = "control-label", @for = "firstName" })
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.FirstName, new { @class = "span4", id = "firstName" })
+            @Html.ValidationMessageFor(m => Model.FirstName, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.LastName, new { @class = "control-label", @for = "lastname" })
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.LastName, new { @class = "span4", id = "lastName" })
+            @Html.ValidationMessageFor(m => Model.LastName, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.PhoneNumber, new { @class = "control-label", @for = "phoneNumber" })
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.PhoneNumber, new { @class = "span4", id = "phonNumber" })
+            @Html.ValidationMessageFor(m => Model.PhoneNumber, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.Email, new { @class = "control-label", @for = "email"})
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.Email, new { @class = "span4", id = "email" ,placeholder ="اختیاری" })
+            @Html.ValidationMessageFor(m => Model.Email, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.Address, new { @class = "control-label", @for = "address" })
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.Address, new { @class = "span4", id = "address" })
+            @Html.ValidationMessageFor(m => Model.Address, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.City, new { @class = "control-label", @for = "city" })
+        @*<label class="control-label" for="city">شهر<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            <select name="City" class="custom-select" id="city">
+                <option value="1">قزوین</option>
+                <option value="2" selected>تهران</option>
+                <option value="3">گیلان</option>
+            </select>
+        </div>
+        @Html.ValidationMessageFor(m => Model.City, "", new { @class = "text-danger" })
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.PostalCode, new { @class = "control-label", @for = "postalCode" })
+        @*<label class="control-label" for="firstName">نام<span class="red-clr bold">*</span></label>*@
+        <div class="controls">
+            @Html.TextBoxFor(m => Model.PostalCode, new { @class = "span4", id = "postalCode" })
+            @Html.ValidationMessageFor(m => Model.PostalCode, "", new { @class = "text-danger" })
+            @*<input type="text" id="firstName" class="span4" required>*@
+        </div>
+    </div>
+    <div class="control-group">
+        @Html.LabelFor(m => Model.Description, new { @class = "control-label", @for = "postalCode" })
+        <div class="controls">
+            @Html.TextAreaFor(m => Model.Description, new { @class = "span4", id = "postalCode",placeholder ="اختیاری" })
+        </div>
+    </div>
+    <button type="submit" class="btn btn-primary input-block-level bold higher">
+        ثبت و ادامه
+    </button>
+    <!--  ==========  -->
+    <!--  = Countries =  -->
+    <!--  ==========  -->
+
+
+    <!-- /countries -->
+}
+
+@*<hr />
+
+    <p class="right-align">
+        در مرحله بعدی شما شیوه پرداخت را انتخاب میکنید &nbsp; &nbsp;
+        <a href="checkout-step-3.html " class="btn btn-primary higher bold">ادامه</a>
+    </p>*@
+

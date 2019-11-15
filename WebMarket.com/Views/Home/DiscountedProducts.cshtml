@@ -1,0 +1,120 @@
+﻿@model List<DataLayer.Product>
+<div class="container">
+    <div class="row">
+        <div class="span12">
+            <div class="push-up over-slider blocks-spacer">
+
+                <!--  ==========  -->
+                <!--  = Three Banners =  -->
+                <!--  ==========  -->
+                <div class="row">
+                    <div class="span4">
+                        <a href="#" class="btn btn-block banner">
+                            <span class="title"><span class="light">فروش</span> تابستانی</span>
+                            <em>تا 60% تخفیف روی کفش ها</em>
+                        </a>
+                    </div>
+                    <div class="span4">
+                        <a href="#" class="btn btn-block colored banner">
+                            <span class="title"><span class="light">ارسال</span> رایگان</span>
+                            <em>برای خرید های بیش از 69000 تومان</em>
+                        </a>
+                    </div>
+                    <div class="span4">
+                        <a href="#" class="btn btn-block banner">
+                            <span class="title"><span class="light">محصولات</span> جدید</span>
+                            <em>از محصولات جدید دیدن کنید.</em>
+                        </a>
+                    </div>
+                </div> <!-- /three banners -->
+            </div>
+        </div>
+    </div>
+
+    <!--  ==========  -->
+    <!--  = Featured Items =  -->
+    <!--  ==========  -->
+    <div class="row featured-items blocks-spacer">
+        <div class="span12">
+
+            <!--  ==========  -->
+            <!--  = Title =  -->
+            <!--  ==========  -->
+            <div class="main-titles lined">
+                <h2 class="title"><span class="light">محصولات</span> تخفیف خورده</h2>
+                <div class="arrows">
+                    <a href="#" class="icon-chevron-right" id="featuredItemsRight"></a>
+                    <a href="#" class="icon-chevron-left" id="featuredItemsLeft"></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="span12">
+            <!--  ==========  -->
+            <!--  = Carousel =  -->
+            <!--  ==========  -->
+            <div class="carouFredSel" data-autoplay="false" data-nav="featuredItems">
+                @{int j = 0, i = 0, count = 0;
+                }
+                @while (true)
+                {
+                    count = 0;
+                    <div class="slide">
+                        <div class="row">
+                            @for (; i < Model.Count; i++)
+                            {
+                                count++;
+                                var item = Model[i];
+                                <!--  ==========  -->
+                                <!--  = Product =  -->
+                                <!--  ==========  -->
+                                <div class="span4">
+                                    <div class="product">
+                                        <div class="product-img featured">
+                                            <div class="picture">
+                                                <img src="@Wrench.FoundSRC(item)" alt="" width="518" style="max-height:165px" />
+                                                <div class="img-overlay">
+                                                    <a href="@Url.Action("productpage","Product",new { id=item.ProductID})" class="btn more btn-primary">توضیحات بیشتر</a>
+                                                    @*<a href="#" class="btn buy btn-danger">خرید</a>*@
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="main-titles">
+                                            <h4 class="title">
+
+                                                <span class="striked">
+                                                    @string.Format("{0} {1}", item.OldPrice.ToString(), "تومان");
+                                                </span> <span class="red-clr">@item.Price تومان</span>
+
+                                            </h4>
+                                            <h5 class="no-margin">@item.ProductName</h5>
+                                        </div>
+                                        <p class="desc">@item.ShortDescription</p>
+                                        <p class="center-align stars">
+                                            @for (int p = 0; p < item.Rate; p++)
+                                            {
+                                                <span class="icon-star stars-clr"></span>
+                                            }@for (int p = 0; p < 5 - item.Rate; p++)
+                                            {
+                                                <span class="icon-star"></span>
+                                            }
+                                        </p>
+                                    </div>
+                                </div> <!-- /product -->
+                                if (count == 3)
+                                {
+                                    break;
+                                }
+                            }
+                        </div>
+                    </div>
+                    if (i >= Model.Count)
+                    {
+                        break;
+                    }
+                }
+            </div>
+        </div> <!-- /carousel -->
+    </div>
+
+</div>

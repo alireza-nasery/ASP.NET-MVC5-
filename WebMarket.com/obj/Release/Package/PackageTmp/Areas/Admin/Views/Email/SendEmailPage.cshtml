@@ -1,0 +1,110 @@
+﻿@model IEnumerable<string>
+<script src="~/Areas/Admin/Themes/ckeditor/ckeditor.js"></script>
+<div class="card">
+    <div class="card-header card-header-primary">
+        <h4 class="card-title">کاربر</h4>
+    </div>
+    <div class="card-body">
+        @using (Html.BeginForm("SendEmailToUser", "Email", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            <div class="row">
+                <div class="col-md-3 col-sm-2 imgUp">
+                    <div class="imagePreview"></div>
+                    <label class="btn btn-primary" style="width:100%">بارگزاری<input type="file" name="Image" id="upload-user-image" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;"></label>
+                </div>
+            </div>
+            <div class="row  mt-3">
+                <div class="col-md-3">
+                    <div class="form-group bmd-form-group">
+                        <input type="text" id="EmailTitle" placeholder="موضوع" class="form-control" />
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="form-group bmd-form-group">
+                        <label class="bmd-label-floating">توضیحات</label>
+                        <textarea type="text" id="FullDescription" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+        }
+        <script>
+            CKEDITOR.replace("FullDescription")
+
+/**/</script>
+        <button class="btn btn-primary pull-right" onclick="checkValidations()">ارسال</button>
+        <div class="clearfix"></div>
+    </div>
+</div>
+
+
+
+<script>
+    var list = []
+    function get() {
+        return list
+    }
+</script>
+@foreach (var item in Model)
+{
+    <script>
+    list.push('@item')
+    </script>
+}
+<script>
+    function checkValidations() {
+        var desc = CKEDITOR.instances['FullDescription'].getData();
+        var image = document.getElementById("upload-user-image").files[0];
+        var title = $("#EmailTitle").val();
+        if (desc == "" || title == "") {
+            showNotification('top', 'center', '', 'لطفا فیلد های مشخص شده را پر کنید', 'warning');
+        } else {
+            if (image == null) {
+                showNotification('top', 'center', '', 'انتخاب تصویر الزامیست', 'warning');
+            } else {
+                sendEmail();
+            }
+        }
+    }
+    function sendEmail() {
+        var formData = new FormData();
+        var image = document.getElementById("upload-user-image").files[0];
+        formData.append("Emails", list);
+        formData.append("Description", CKEDITOR.instances['FullDescription'].getData());
+        formData.append("Title", $("#EmailTitle").val());
+        formData.append("image", image);
+        var post = $.ajax({
+            url: "/Admin/Email/SendEmailToUser/",
+            type: "Post",
+            dataType: "json",
+            contentType: false,
+            processData: false,
+            data: formData
+        })
+        $('#WaitingModal').modal('show');
+        post.done(function (result) {
+            $('#WaitingModal').modal('hide');
+            showNotification('top', 'center', '', 'پیام مورد نظر شما ارسال شد', 'success');
+        })
+    }
+</script>
+<!-- waiting admin modal -->
+<div id="WaitingModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">اخطار</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                ارسال پیام ممکن است زمان ببرد لطفا شکیبا باشید
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

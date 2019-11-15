@@ -1,0 +1,123 @@
+// misc styles
+
+// jQuery UI modifiers
+
+.jqueryui-slider-container {
+  padding: 9px;
+  margin-bottom: 3px;
+}
+.ui-slider-horizontal {
+  height: 0.6em;
+}
+.ui-widget-content {
+  border-color: $darkBorders;
+  @include box-shadow(inset 0 1px 2px $borders);
+}
+.ui-widget-header {
+  background: $theme;
+}
+.ui-slider-horizontal .ui-slider-handle {
+  top: -0.4em;
+  @include gradient-vertical($white, $borders);
+  
+  &:before {
+    display: block;
+    content: "";
+    bottom: 0;
+    left: 5px;
+    width: 100%;
+    height: 100%;
+    @include background(linear-gradient(center left, $darkBorders 0%, $darkBorders 25%, transparent 25%, transparent 100%) repeat-x center center);
+    @include background-size(4px 8px);
+  }
+}
+
+
+// Bootstrap Tours JS plugin
+.tour-backdrop {
+  position: absolute;
+  z-index: 1009;
+  background: #000;
+  @include opacity(40);
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.tour-step-backdrop {
+  position: relative;
+  z-index: 1011;
+}
+.tour-step-background {
+  position: absolute;
+  z-index: 1010;
+  background: #fff;
+  border-radius: 6px;
+}
+.popover.tour .popover-navigation {
+  padding: 9px 14px;
+  
+  .btn {
+    background: $theme;
+    color: #fff;
+    text-shadow: none;
+  }
+}
+.popover.tour .popover-navigation *[data-role=end] {
+  float: right;
+}
+.popover.tour .popover-navigation *[data-role=prev],
+.popover.tour .popover-navigation *[data-role=next],
+.popover.tour .popover-navigation *[data-role=end] {
+  cursor: pointer;
+}
+
+
+/**** Isotope Filtering ****/
+
+.isotope-item {
+  z-index: 2;
+}
+
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: 0.8s;
+     -moz-transition-duration: 0.8s;
+      -ms-transition-duration: 0.8s;
+       -o-transition-duration: 0.8s;
+          transition-duration: 0.8s;
+}
+
+.isotope {
+  -webkit-transition-property: height, width;
+     -moz-transition-property: height, width;
+      -ms-transition-property: height, width;
+       -o-transition-property: height, width;
+          transition-property: height, width;
+}
+
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+     -moz-transition-property:    -moz-transform, opacity;
+      -ms-transition-property:     -ms-transform, opacity;
+       -o-transition-property:      -o-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+     -moz-transition-duration: 0s;
+      -ms-transition-duration: 0s;
+       -o-transition-duration: 0s;
+          transition-duration: 0s;
+}

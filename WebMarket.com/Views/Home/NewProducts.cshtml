@@ -1,0 +1,79 @@
+﻿@model IEnumerable<DataLayer.Product>
+@functions{
+    public string FoundSRC(DataLayer.Product product)
+    {
+        if (product.ProductGallery.Count != 0)
+        {
+            return "data:image/*;base64," + Convert.ToBase64String(product.ProductGallery.First().Image);
+        }
+        return "http://cliquecities.com/assets/no-image-e3699ae23f866f6cbdf8ba2443ee5c4e.jpg";//set default image for product
+    }
+}
+<div class="boxed-area blocks-spacer">
+    <div class="container">
+
+        <!--  ==========  -->
+        <!--  = Title =  -->
+        <!--  ==========  -->
+        <div class="row">
+            <div class="span12">
+                <div class="main-titles lined">
+                    <h2 class="title"><span class="light">محصولات</span> جدید فروشگاه</h2>
+                </div>
+            </div>
+        </div> <!-- /title -->
+
+        <div class="row popup-products blocks-spacer">
+            @{int counter = 0; }
+            @foreach (var item in Model)
+            {
+                counter++;
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="@FoundSRC(item)" alt="" width="540" style="max-height:172px" />
+                                <div class="img-overlay">
+                                    <a href="@Url.Action("productpage","Product",new { id=item.ProductID})" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    @*<a href="#" class="btn buy btn-danger">اضافه به سبد خرید</a>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">
+                                <span class="striked">
+                                    @{ var data = string.Empty;}
+                                    @if (!(item.OldPrice == 0 || item.OldPrice == null))
+                                    {
+                                        data = string.Format("{0} {1}", item.OldPrice.ToString(), "تومان");
+                                    }
+                                    @data
+                                </span> <span class="red-clr">@item.Price تومان</span>
+                            </h4>
+                            @*<h5 class="no-margin">محصول ویژه 434</h5>*@
+                        </div>
+                        <p class="desc">@item.ShortDescription</p>
+                        <p class="center-align stars">
+                            @for (int i = 0; i < item.Rate; i++)
+                            {
+                                <span class="icon-star stars-clr"></span>
+                            }@for (int i = 0; i < 5 - item.Rate; i++)
+                            {
+                                <span class="icon-star"></span>
+                            }
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+
+                if (counter == 4)
+                {
+                    <div class="clearfix"></div>
+                }
+            }
+
+        </div>
+    </div>
+</div>
