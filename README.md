@@ -13,6 +13,10 @@ A panel for the complete management of an online store
 # Most libraries used
 - EntityFramework
 - ASP.NET
+- WebApi
+- Newtonsoft.Json
+- jQuery
+- bootstrap
 
 # System requirements
 - IIS 7+
