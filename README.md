@@ -1,4 +1,4 @@
-# open source control management system
+# open source control management system [![version](https://img.shields.io/badge/version-0.1-green.svg)](https://semver.org)
 A panel for the complete management of an online store
 # Features now
 1. Add and change products
