@@ -1,5 +1,4 @@
 # open source control management system [![version](https://img.shields.io/badge/version-0.1-green.svg)](https://semver.org)
-A panel for the complete management of an online store
 Link to view panel : http://www.tempmarket.ir/Admin/AddProduct/Add
 
 # Features now
