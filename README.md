@@ -14,7 +14,7 @@ Link to view panel : http://www.tempmarket.ir/Admin/AddProduct/Add
 # Most libraries used
 - EntityFramework
 - ASP.NET
-- WebApi
+- ajax
 - Newtonsoft.Json
 - jQuery
 - bootstrap
