@@ -13,11 +13,10 @@ Link to view panel : http://www.tempmarket.ir/Admin/AddProduct/Add
 
 # Most libraries used
 - EntityFramework
-- ASP.NET
+- ASP.NET MVC
 - ajax
-- Newtonsoft.Json
 - jQuery
-- bootstrap
+- bootstrap 4
 
 # System requirements
 - IIS 7+
