@@ -1,0 +1,72 @@
+﻿@model List<DataLayer.ShopCartModel>
+
+@if (Model != null)
+{
+
+
+    var data = 0.0;
+    for (int i = 0; i < Model.Count; i++)
+    {
+        var item = Model[i];
+        data += item.Product.Price * item.Number;
+        <div id="ShopCardmemberTag_@i" class="item-in-cart clearfix">
+            <div class="image">
+                <img src="@Wrench.FoundSRC(item.ProductGalleryList)" width="124" height="124" alt="cart item" />
+            </div>
+            <div class="desc">
+                <strong><a href="product.html">@item.Product.ProductName</a></strong>
+                <span class="light-clr qty">
+                    تعداد : <span class="ProductNumber">@item.Number</span>
+                    &nbsp;
+                    <a href="#" id="" class="icon-remove-sign" title="" onclick="removeProductFromShopCard(@i)"></a>
+                </span>
+            </div>
+            <div class="price">
+                <strong class="ProductPrice">@item.Product.Price تومان</strong>
+            </div>
+        </div>
+
+    }
+    <div class="row">
+        @if (data > 0)
+        {
+            <div class="summary" style="float:left">
+                <div class="line">
+                    <div class="row-fluid">
+                        <div id="TotalBills" class="span6 align-right size-10">@data تومان</div>
+                        <div class="span6">جمع کل :</div>
+                    </div>
+                </div>
+            </div>
+            <a href="@Url.Action("Address","CheckOutShopCard")" class="btn btn-primary" style="float:right;width:25%;margin-bottom:10px;margin-right:10px">خرید</a>
+        }
+    </div>
+
+    @*<div class="proceed">
+            <a href="checkout-step-1.html" class="btn btn-danger pull-right bold higher">تصویه حساب <i class="icon-shopping-cart"></i></a>
+            <small>هزینه ارسال بر اساس منطقه جغرافیایی محاسبه میشود. <a href="#">اطلاعات بیشتر</a></small>
+        </div>*@
+}
+
+
+<script>
+    function refreshTotalBills() {
+        var data = 0.0;
+        var numbers = document.getElementsByClassName('ProductNumber');
+        var prices = document.getElementsByClassName('ProductPrice');
+        for (i = 0; i < numbers.length; i++) {
+            data += parseFloat(prices[i].innerHTML) * parseInt(numbers[i].innerHTML);
+        }
+        document.getElementById('TotalBills').innerHTML = data.toString() + "  تومان";
+    }
+    function removeProductFromShopCard(id) {
+        var target = document.getElementById('ShopCardmemberTag_' + id);
+        target.remove();
+        $.ajax({
+            url: "/Product/RemoveProductFromShopCard/",
+            type: "Post",
+            data: { id: id },
+            success: refreshTotalBills()
+        })
+    }
+</script>

@@ -1,0 +1,61 @@
+﻿@model IEnumerable<DataLayer.Product>
+<div class="most-popular blocks-spacer">
+    <div class="container">
+
+        <!--  ==========  -->
+        <!--  = Title =  -->
+        <!--  ==========  -->
+        <div class="row">
+            <div class="span12">
+                <div class="main-titles lined">
+                    <h2 class="title"><span class="light"> محبوب ترین </span>محصولات فروشگاه</h2>
+                </div>
+            </div>
+        </div> <!-- /title -->
+
+        <div class="row popup-products">
+
+            @foreach (var item in Model)
+            {
+                <!--  ==========  -->
+                <!--  = Product =  -->
+                <!--  ==========  -->
+                <div class="span3">
+                    <div class="product">
+                        <div class="product-img">
+                            <div class="picture">
+                                <img src="@Wrench.FoundSRC(item)" alt="" width="540" style="max-height:172px">
+                                <div class="img-overlay">
+                                    <a href="@Url.Action("productpage","Product",new { id=item.ProductID})" class="btn more btn-primary">توضیحات بیشتر</a>
+                                    @*<a href="#" class="btn buy btn-danger">خرید</a>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="main-titles no-margin">
+                            <h4 class="title">
+                                @{ var data = string.Empty;}
+                                @if (item.OldPrice != 0)
+                                {
+                                    data = string.Format("{0} {1}", item.OldPrice.ToString(), "تومان");
+                                }
+                                @data
+                                <span class="red-clr">@item.Price تومان</span>
+                            </h4>
+                            @*<h5 class="no-margin">@item.ProductName</h5>*@
+                        </div>
+                        <p class="desc">@item.ShortDescription</p>
+                        <p class="center-align stars">
+                            @for (int i = 0; i < item.Rate; i++)
+                            {
+                                <span class="icon-star stars-clr"></span>
+                            }@for (int i = 0; i < 5 - item.Rate; i++)
+                            {
+                                <span class="icon-star"></span>
+                            }
+                        </p>
+                    </div>
+                </div> <!-- /product -->
+            }
+        </div>
+    </div>
+</div>

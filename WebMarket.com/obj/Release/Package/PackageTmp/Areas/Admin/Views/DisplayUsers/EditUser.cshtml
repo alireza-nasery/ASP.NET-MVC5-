@@ -1,0 +1,136 @@
+﻿@model DataLayer.EditUserViewModel
+@{
+    ViewBag.Title = "EditUser";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">کاربر</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("EditUser", "DisplayUsers", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    @Html.AntiForgeryToken()
+                    @Html.TextBoxFor(u => u.ID, new { style = "visibility:hidden" })
+                    @Html.TextBoxFor(u => u.Picture64, new { style = "visibility:hidden" })
+                    <div class="row">
+                        <div class="col-md-3 col-sm-2 imgUp">
+                            <div class="imagePreview" style="@Wrench.GetBackgroundImage(Model.Picture64)"></div>
+                            <label class="btn btn-primary" style="width:100%">بارگزاری<input type="file" name="Image" id="upload-user-image" class="uploadFile img" style="width:0px;height:0px;overflow:hidden;"></label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <select name="RoleID" class="custom-select custom-select">
+                                @if (Model.RoleID == 4)
+                                {
+                                    <option value="4" selected>ادمین</option>
+                                    <option value="5">کاربر عادی</option>
+                                }
+                                else
+                                {
+                                    <option value="4">ادمین</option>
+                                    <option value="5" selected>کاربر عادی</option>
+                                }
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="togglebutton">
+                                <label>
+                                    @Html.LabelFor(m => m.IsActive, new { @class = "bmd-label-floating" })
+                                    @if (Model.IsActive)
+                                    {
+                                        <input id="IsActive" name="IsActive" type="checkbox" checked value="true" />
+                                    }
+                                    else
+                                    {
+                                        <input id="IsActive" name="IsActive" type="checkbox" value="false" />
+                                    }
+                                    <span id="ToggleButton" class="toggle"></span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row  mt-3">
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.Username, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.Username, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => Model.Username, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.Email, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.Email, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => Model.Email, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.FirstName, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.FirstName, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.LastName, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.LastName, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => Model.LastName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.City, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.City, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.Address, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.Address, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.PostalCode, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.PostalCode, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.AboutMe, new { @class = "bmd-label-floating" })
+                                @Html.TextAreaFor(m => Model.AboutMe, new { @class = "form-control" })
+                            </div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary pull-right">تغییر</button>
+                    <div class="clearfix"></div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $('#ToggleButton').click(function () {
+        if ($('#IsActive').is(':checked')) {
+            $('#IsActive').val('false')
+        } else {
+            $('#IsActive').val('true')
+        }
+    })
+</script>
+@if (ViewBag.Result == 100 || ViewBag.Result == 101)
+{
+    <script>
+        showNotification('top', 'center', '@ViewBag.Icon','@ViewBag.Message', '@ViewBag.Type')
+    </script>
+}
+

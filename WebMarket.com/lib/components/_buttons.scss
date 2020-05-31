@@ -1,0 +1,90 @@
+//  ========== 
+//  = Buttons for the Woo Market = 
+//  ========== 
+
+.btn {
+  border: none;
+  @extend %opensans;
+  @include box-shadow(0 2px 0 darken($btnBackground, 17%));
+  filter: none;
+    
+  &:hover {
+    background: darken($btnBackground,5%);
+  }
+  &:focus {
+    background-position: 0 0;
+  }
+  
+  &.btn-primary {
+    @include box-shadow(0 2px 0 darken($theme, 17%));
+    @include buttonBackground($theme, $theme);
+    
+    &:hover {
+      background: darken($theme,3%);
+    }
+  }
+  &.btn-danger {
+    @include box-shadow(0 2px 0 darken($mainBtns, 17%));
+    @include buttonBackground($mainBtns, $mainBtns);
+    
+    &:hover {
+      background: darken($mainBtns,5%);
+    }
+  }
+  &.btn-success {
+    @include box-shadow(0 2px 0 darken($green, 17%));
+    @include buttonBackground($green, $green);
+    
+    &:hover {
+      background: darken($green,5%);
+    }
+  }
+  &.btn-warning {
+    @include box-shadow(0 2px 0 darken($orange, 17%));
+    @include buttonBackground($orange, $orange);
+    
+    &:hover {
+      background: darken($orange,5%);
+    }
+  }
+  &.btn-info {
+    @include box-shadow(0 2px 0 darken($blue, 30%));
+    @include buttonBackground($blue, $blue);
+    
+    &:hover {
+      background: darken($blue,5%);
+    }
+  }
+  
+  &.rounded {
+    @include border-radius(99px);
+  }
+  &.circle {
+    @include border-radius(99px);
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    line-height: 30px;
+  }
+  &.higher {
+    padding: 8px 14px;
+  }
+}
+
+.form {
+  .btn {
+    padding-top: 8px;
+    padding-bottom: 8px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
+
+.navbar .btn-navbar {
+  @include gradient-vertical($theme, $theme);
+  padding: 15px 15px; 
+  margin-right: 0;
+  margin-left: 0;
+  margin-top: 8px;
+}

@@ -1,0 +1,39 @@
+﻿@model DataLayer.ActivationLinkViewModel
+
+<!--  = activation link modal =  -->
+<div id="activationLinkModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="registerModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h3 id="registerModalLabel"><span class="light">کد بفال سارس به ایمیلم ارسال نشذه؟</span> در وبمارکت</h3>
+    </div>
+    <div class="modal-body">
+        @using (Html.BeginForm("SendActivationLink", "Account"))
+        {
+            @Html.AntiForgeryToken()
+            @Html.ValidationSummary(true, "", new { @class = "text-error" })
+
+            <div class="control-group">
+                @Html.LabelFor(m => Model.Email_Activation)
+                <div class="controls">
+                    @Html.TextBoxFor(m => Model.Email_Activation)
+                    @Html.ValidationMessageFor(m => Model.Email_Activation, "", new { @class = "text-error" })
+                </div>
+            </div>
+            <button type="submit" class="btn btn-danger input-block-level bold higher">
+                ثبت نام
+            </button>
+        }
+        <p class="center-align push-down-0">
+            <a data-toggle="modal" role="button" href="#loginModal" data-dismiss="modal">قبلا ثبت نام کرده اید؟</a>
+        </p>
+
+    </div>
+</div>
+@if (ViewBag.ModalCode == 104)
+{
+    <script>
+        $(document).ready(function () {
+            $('#activationLinkModal').modal('show')
+        })
+    </script>
+}

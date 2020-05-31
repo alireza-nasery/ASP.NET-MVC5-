@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DataLayer.Product>
+@functions{
+    public string FoundClass(DataLayer.Product product)
+    {
+        var data = "";
+        foreach (var item in product.Product_Groups)
+        {
+            data += $"Categories_{item.Group.GroupID} ";
+        }
+        foreach (var item in product.Product_Features)
+        {
+            data += $"Features_{item.Value} ";
+        }
+        return data;
+    }
+}
+@foreach (var item in Model)
+{
+    <div class="span3 @FoundClass(item) isotope-item Price_Range" data-price="@item.Price" data-popularity="2" data-size="xs|s|m|xl" data-color="pink" data-brand="adidas" style="position: absolute; left: 0px; top: 0px; transform: translate3d(300px, 3105px, 0px);">
+        <div class="product">
+
+            @if (item.Available == false)
+            {
+                <div class="stamp red">تمام شد</div>
+            }@if (item.Product_Features.Any(pf => pf.Value == "جدید"))
+            {
+                <div class="stamp green">جدید</div>
+            }
+            <div class="product-img">
+                <div class="picture">
+                    <img width="540" style="max-height:172px" alt="" src="@Wrench.FoundSRC(item)">
+                    <div class="img-overlay">
+                        <a class="btn more btn-primary" href="@Url.Action("productpage","Product",new { id=item.ProductID})">توضیحات بیشتر</a>
+                        @*<a class="btn buy btn-danger" href="#">اضافه به سبد خرید</a>*@
+                    </div>
+                </div>
+            </div>
+            <div class="main-titles no-margin">
+                <h4 class="title">
+                    <span class="striked">
+                        @{ var data = string.Empty;}
+                        @if (item.OldPrice != 0)
+                        {
+                            data = string.Format("{0} {1}", item.OldPrice.ToString(), "تومان");
+                        }
+                        @data
+                    </span> <span class="red-clr">@item.Price تومان</span>
+                </h4>
+                <h5 class="no-margin isotope--title">@item.ShortDescription</h5>
+            </div>
+            <p class="center-align stars">
+                @for (int i = 0; i < item.Rate; i++)
+                {
+                    <span class="icon-star stars-clr"></span>
+                }@for (int i = 0; i < 5 - item.Rate; i++)
+                {
+                    <span class="icon-star"></span>
+                }
+            </p>
+        </div>
+    </div> <!-- /single product -->
+}

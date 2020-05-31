@@ -1,0 +1,152 @@
+//  ========== 
+//  = Tabs / accordion for the Woo Market = 
+//  ========== 
+
+// tabs
+.nav-tabs {
+  border-bottom: none;
+  margin-bottom: 0;
+  > li {
+    margin-bottom: -3px;
+    > a {
+      color: $navbarLinkColor;
+      font-weight: bold;
+      text-transform: uppercase;
+      @extend %opensans;
+      position: relative;
+      border: none;
+      padding: 16px 12px;
+      @include border-radius(0);
+      
+      &:hover,
+      &:focus {
+        background: none;
+        color: $titles;
+      }
+      &:after {
+        content: "";
+        display: block;
+        position: absolute;
+        width: 1px;
+        height: 13px;
+        background-color: $borders;
+        right: 0;
+        top: 18px;
+      }
+    }
+    &:last-child a:after {
+      display: none;
+    }
+  }
+  > .active {
+    > a,
+    > a:hover,
+    > a:focus {
+      padding-top: 13px;
+      border: none;
+      color: $titles;
+      border-bottom: 3px solid $theme;
+    }
+  }
+}
+
+.tab-content {
+  //@include box-shadow(0 0 2px rgba(0,0,0,0.2));
+  border: 1px solid $borders;
+  padding: 20px;
+}
+
+// style 2
+.nav-tabs-style-2 {
+  > li {
+    margin-bottom: -1px;
+    > a {
+      text-transform: none;
+      background-color: $grayLighter;
+      border-color: $borders;
+      border-style: solid;
+      border-width: 1px 1px 0 1px;
+      padding-top: 14px;
+      margin-right: 4px;
+      
+      &:after {
+        display: none;
+      }
+      &:hover {
+        background-color: $grayLighter;
+        border-color: $borders;
+      }
+    }
+  }
+  > .active {
+    > a,
+    > a:hover,
+    > a:focus {
+      border-style: solid solid none solid;
+      border-width: 3px 1px 0 1px;
+      border-color: $theme $borders $borders $borders;
+      color: $titles;
+      //border-bottom: 3px solid #fff;
+    }
+  }
+}
+
+// accordion
+
+.accordion-heading {
+  .accordion-toggle {
+    @extend %opensans;
+    display: block;
+    font-weight: bold;
+    font-size: 14px;
+    text-decoration: none !important;
+  }
+}
+.accordion-group {
+  margin: 10px 0;
+  border: none;
+  @include border-radius(0);
+  
+  .bolded-line {
+    margin: 10px 0;
+  }
+}
+.accordion-inner {
+  padding: 5px 0;
+}
+
+.accordion-style-2 {
+  border: 1px solid $borders;
+  
+  .accordion-heading {
+    background-color: $grayLighter;
+    
+    .accordion-toggle {
+      color: $titles;
+      padding: 12px 15px;
+      
+      .icon-plus {
+        display: inline;
+      }
+      .icon-minus {
+        display: none;
+      }
+    }
+  }
+  .accordion-inner {
+    padding: 15px 25px;
+  }
+  &.active {
+    .accordion-toggle {
+      .icon-plus {
+        display: none;
+      }
+      .icon-minus {
+        display: inline;
+      }
+    }
+  }
+}
+
+
+

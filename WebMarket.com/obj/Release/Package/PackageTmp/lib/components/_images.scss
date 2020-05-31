@@ -1,0 +1,139 @@
+//  ========== 
+//  = Images/thumbnails/galleries for the Woo Market = 
+//  ========== 
+
+// placeholders
+%overlay {
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.picture {
+  position: relative;
+  overflow: hidden;
+  
+  img {
+    width: 100%;
+    
+    &.rounded {
+      @include border-radius(3px);
+    }
+  }
+  
+  .img-overlay {
+    @extend %overlay;
+    background-color: rgba(255,255,255,0.33);
+    @include opacity(0);
+    width: 0;
+    height: 0;
+    @include transition(all 0.33s ease-in-out);
+    
+    .btn,
+    .icons-zoom {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+    }
+    .icons-zoom {
+      margin-left: -8px;
+      margin-top: -8px;
+    }
+  }
+}
+
+
+// featured products on the front page
+.product-img {
+  margin-bottom: 15px;
+  
+  &.featured {
+    background: image-url('shelf.png') no-repeat center bottom;
+    @include background-size(100% auto);
+    padding-bottom: 14%;
+    
+    .picture {
+      width: 70%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}
+.product {
+  &:hover {
+    .img-overlay {
+      @include opacity(100);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+    }
+  }
+  .picture {
+    .btn {
+      padding-top: 10px;
+      padding-bottom: 10px;
+      font-weight: bold;
+      text-transform: uppercase;
+      width: 115px;
+      padding-left: 0;
+      padding-right: 0;
+      @include transition(all 0.5s ease);
+      
+      &.more {
+        margin-top: -40px;
+        margin-left: -250px;
+      }
+      &.buy {
+        margin-top: 10px;
+        margin-left: 135px;
+      }
+    }
+  }
+    
+  &:hover {
+    .picture .btn {
+      margin-left: -0.5*115px;
+    }
+  }
+}
+
+
+
+
+
+// wp images and classes
+.aligncenter {
+  display: block;
+  margin: $baseLineHeight auto;
+  clear: both;
+}
+.alignleft,
+.attachment-post-thumbnail {
+  float: left;
+  margin-right: $baseLineHeight;
+  margin-bottom: 5px;
+}
+.alignright {
+  float: right;
+  margin-left: $baseLineHeight;
+  margin-bottom: 5px;
+}
+.alignnone {
+  display: inline;
+}
+.wp-caption-text,
+.gallery-caption {
+  text-align: center;
+  font-style: italic;
+}
+.gallery-caption {
+  font-size: ($baseFontSize/1.1);
+  line-height: ($baseLineHeight/1.2);
+}
+
+
+

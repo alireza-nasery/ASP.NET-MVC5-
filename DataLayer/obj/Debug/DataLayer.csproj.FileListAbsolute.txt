@@ -1,0 +1,39 @@
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\DataLayer.dll.config
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.Http.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.Mvc.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.Razor.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.WebPages.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.dll.config
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.pdb
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\EntityFramework.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\System.Web.Razor.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\System.Web.WebPages.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\EntityFramework.xml
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.csprojAssemblyReference.cache
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.pdb
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\Dapper.dll
+C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\Dapper.xml

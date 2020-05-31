@@ -1,0 +1,55 @@
+﻿@using DataLayer;
+@model NewsViewModel
+
+@{
+    ViewBag.Title = "AboutNews";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-header card-header-primary">
+                <h4 class="card-title">خبرنامه</h4>
+            </div>
+            <div class="card-body">
+                @using (Html.BeginForm("AboutNews", "News", FormMethod.Post))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <div class="row  mt-3">
+                        <div class="col-md-3">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.Title, new { @class = "bmd-label-floating" })
+                                @Html.TextBoxFor(m => Model.Title, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(m => Model.Title, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mt-3">
+                        <div class="col-md-12">
+                            <div class="form-group bmd-form-group">
+                                @Html.LabelFor(m => Model.Description, new { @class = "bmd-label-floating" })
+                                @Html.TextAreaFor(m => Model.Description, new { @class = "form-control", id = "FullDescription" })
+                                @Html.ValidationMessageFor(m => Model.Description, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                    </div>
+                  
+                    <button type="submit" class="btn btn-primary pull-right">افزودن</button>
+                    <div class="clearfix"></div>
+                }
+                <script>
+    CKEDITOR.replace("FullDescription")
+
+                    /**/</script>
+            </div>
+        </div>
+    </div>
+</div>
+@if (ViewBag.Result == 100 || ViewBag.Result == 101)
+{
+    <script>
+        showNotification('top', 'center', '@ViewBag.Icon','@ViewBag.Message', '@ViewBag.Type')
+    </script>
+}

@@ -1,0 +1,38 @@
+//  ========== 
+//  = Sidebars for the Woo Market = 
+//  ==========
+
+// fonts
+%opensans {
+  font-family: 'Open Sans', sans-serif;
+  -webkit-font-smoothing:antialiased;
+}
+%pacifico {
+  font-family: 'Pacifico', cursive;
+  font-weight: normal;
+  -webkit-font-smoothing:antialiased; 
+}
+
+
+// search form with search button over the input
+%search-form {
+  position: relative;
+    
+  button[type="submit"] {
+    position: absolute;
+    display: block;
+    border: none;
+    background: none;
+    width: 30px;
+    line-height: 30px;
+    height: 30px;
+    overflow: hidden;
+    padding: 0;
+    margin: 0;
+    color: $navbarLinkColor;
+    
+    &:hover {
+      color: darken($navbarLinkColor, 10%);
+    }
+  }
+}

@@ -1,0 +1,308 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="WebMarket.com_dbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="WebMarket_Entity" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Roles" EntityType="WebMarket.com_dbModel.Roles" />
+    <EntitySet Name="sysdiagrams" EntityType="WebMarket.com_dbModel.sysdiagrams" />
+    <EntitySet Name="User" EntityType="WebMarket.com_dbModel.User" />
+    <AssociationSet Name="FK_User_Roles" Association="WebMarket.com_dbModel.FK_User_Roles">
+      <End Role="Roles" EntitySet="Roles" />
+      <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <EntitySet Name="Product" EntityType="WebMarket.com_dbModel.Product" />
+    <EntitySet Name="Group" EntityType="WebMarket.com_dbModel.Group" />
+    <EntitySet Name="Features" EntityType="WebMarket.com_dbModel.Features" />
+    <EntitySet Name="FeaturesSummery" EntityType="WebMarket.com_dbModel.FeaturesSummery" />
+    <AssociationSet Name="FK_FeaturesSummery_Features" Association="WebMarket.com_dbModel.FK_FeaturesSummery_Features">
+      <End Role="Features" EntitySet="Features" />
+      <End Role="FeaturesSummery" EntitySet="FeaturesSummery" />
+    </AssociationSet>
+    <EntitySet Name="Product_Groups" EntityType="WebMarket.com_dbModel.Product_Groups" />
+    <AssociationSet Name="FK_Product_Groups_Group" Association="WebMarket.com_dbModel.FK_Product_Groups_Group">
+      <End Role="Group" EntitySet="Group" />
+      <End Role="Product_Groups" EntitySet="Product_Groups" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Groups_Product" Association="WebMarket.com_dbModel.FK_Product_Groups_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Groups" EntitySet="Product_Groups" />
+    </AssociationSet>
+    <EntitySet Name="ProductGallery" EntityType="WebMarket.com_dbModel.ProductGallery" />
+    <AssociationSet Name="FK_ProductGallery_Product" Association="WebMarket.com_dbModel.FK_ProductGallery_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="ProductGallery" EntitySet="ProductGallery" />
+    </AssociationSet>
+    <EntitySet Name="Product_Features" EntityType="WebMarket.com_dbModel.Product_Features" />
+    <AssociationSet Name="FK_Product_Features_Features" Association="WebMarket.com_dbModel.FK_Product_Features_Features">
+      <End Role="Features" EntitySet="Features" />
+      <End Role="Product_Features" EntitySet="Product_Features" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Product_Features_Product" Association="WebMarket.com_dbModel.FK_Product_Features_Product">
+      <End Role="Product" EntitySet="Product" />
+      <End Role="Product_Features" EntitySet="Product_Features" />
+    </AssociationSet>
+    <EntitySet Name="Order_CustomerAddress" EntityType="WebMarket.com_dbModel.Order_CustomerAddress" />
+    <EntitySet Name="Order_CustomerProducts" EntityType="WebMarket.com_dbModel.Order_CustomerProducts" />
+    <AssociationSet Name="FK_Order_CustomerProducts_Order_CustomerAddress" Association="WebMarket.com_dbModel.FK_Order_CustomerProducts_Order_CustomerAddress">
+      <End Role="Order_CustomerAddress" EntitySet="Order_CustomerAddress" />
+      <End Role="Order_CustomerProducts" EntitySet="Order_CustomerProducts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Roles">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleTitle" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="User" Relationship="WebMarket.com_dbModel.FK_User_Roles" FromRole="Roles" ToRole="User" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Usename" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ActiveCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Boolean" Nullable="false" />
+    <Property Name="RoleID" Type="Int32" Nullable="false" />
+    <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RegisterDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Address" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="AboutMe" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Roles" Relationship="WebMarket.com_dbModel.FK_User_Roles" FromRole="User" ToRole="Roles" />
+    <Property Name="PhonNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_User_Roles">
+    <End Type="WebMarket.com_dbModel.Roles" Role="Roles" Multiplicity="1" />
+    <End Type="WebMarket.com_dbModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Roles">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="RoleID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product">
+    <Key>
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Price" Type="Double" Nullable="false" />
+    <Property Name="OldPrice" Type="Double" />
+    <Property Name="ShortDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="FullDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Rate" Type="Int32" />
+    <Property Name="ProductName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Guid" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="Available" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Product_Groups" Relationship="WebMarket.com_dbModel.FK_Product_Groups_Product" FromRole="Product" ToRole="Product_Groups" />
+    <NavigationProperty Name="ProductGallery" Relationship="WebMarket.com_dbModel.FK_ProductGallery_Product" FromRole="Product" ToRole="ProductGallery" />
+    <NavigationProperty Name="Product_Features" Relationship="WebMarket.com_dbModel.FK_Product_Features_Product" FromRole="Product" ToRole="Product_Features" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="GroupID" />
+    </Key>
+    <Property Name="GroupID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroupName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Product_Groups" Relationship="WebMarket.com_dbModel.FK_Product_Groups_Group" FromRole="Group" ToRole="Product_Groups" />
+  </EntityType>
+  <EntityType Name="Features">
+    <Key>
+      <PropertyRef Name="FeaturesID" />
+    </Key>
+    <Property Name="FeaturesID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FeaturesName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="FeaturesSummery" Relationship="WebMarket.com_dbModel.FK_FeaturesSummery_Features" FromRole="Features" ToRole="FeaturesSummery" />
+    <NavigationProperty Name="Product_Features" Relationship="WebMarket.com_dbModel.FK_Product_Features_Features" FromRole="Features" ToRole="Product_Features" />
+  </EntityType>
+  <EntityType Name="FeaturesSummery">
+    <Key>
+      <PropertyRef Name="FS_ID" />
+    </Key>
+    <Property Name="FS_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FS_Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FeaturesID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Features" Relationship="WebMarket.com_dbModel.FK_FeaturesSummery_Features" FromRole="FeaturesSummery" ToRole="Features" />
+  </EntityType>
+  <Association Name="FK_FeaturesSummery_Features">
+    <End Type="WebMarket.com_dbModel.Features" Role="Features" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.FeaturesSummery" Role="FeaturesSummery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Features">
+        <PropertyRef Name="FeaturesID" />
+      </Principal>
+      <Dependent Role="FeaturesSummery">
+        <PropertyRef Name="FeaturesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_Groups">
+    <Key>
+      <PropertyRef Name="PG_ID" />
+    </Key>
+    <Property Name="PG_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="GroupID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Group" Relationship="WebMarket.com_dbModel.FK_Product_Groups_Group" FromRole="Product_Groups" ToRole="Group" />
+    <NavigationProperty Name="Product" Relationship="WebMarket.com_dbModel.FK_Product_Groups_Product" FromRole="Product_Groups" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Product_Groups_Group">
+    <End Type="WebMarket.com_dbModel.Group" Role="Group" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.Product_Groups" Role="Product_Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Group">
+        <PropertyRef Name="GroupID" />
+      </Principal>
+      <Dependent Role="Product_Groups">
+        <PropertyRef Name="GroupID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Groups_Product">
+    <End Type="WebMarket.com_dbModel.Product" Role="Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.Product_Groups" Role="Product_Groups" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Product_Groups">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="ProductGallery">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ImageName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Image" Type="Binary" Nullable="false" MaxLength="Max" FixedLength="false" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="HomeNumber" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Product" Relationship="WebMarket.com_dbModel.FK_ProductGallery_Product" FromRole="ProductGallery" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_ProductGallery_Product">
+    <End Type="WebMarket.com_dbModel.Product" Role="Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.ProductGallery" Role="ProductGallery" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="ProductGallery">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Product_Features">
+    <Key>
+      <PropertyRef Name="PF_ID" />
+    </Key>
+    <Property Name="PF_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="FeaturesID" Type="Int32" Nullable="false" />
+    <Property Name="Value" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Features" Relationship="WebMarket.com_dbModel.FK_Product_Features_Features" FromRole="Product_Features" ToRole="Features" />
+    <NavigationProperty Name="Product" Relationship="WebMarket.com_dbModel.FK_Product_Features_Product" FromRole="Product_Features" ToRole="Product" />
+  </EntityType>
+  <Association Name="FK_Product_Features_Features">
+    <End Type="WebMarket.com_dbModel.Features" Role="Features" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.Product_Features" Role="Product_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Features">
+        <PropertyRef Name="FeaturesID" />
+      </Principal>
+      <Dependent Role="Product_Features">
+        <PropertyRef Name="FeaturesID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Product_Features_Product">
+    <End Type="WebMarket.com_dbModel.Product" Role="Product" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.Product_Features" Role="Product_Features" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Product">
+        <PropertyRef Name="ProductID" />
+      </Principal>
+      <Dependent Role="Product_Features">
+        <PropertyRef Name="ProductID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Order_CustomerAddress">
+    <Key>
+      <PropertyRef Name="Order_CustomerAddressID" />
+    </Key>
+    <Property Name="Order_CustomerAddressID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PhoneNumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="City" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="PostalCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Description" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="CreateDate" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="FirstName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="LastName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsFinally" Type="Boolean" Nullable="false" />
+    <Property Name="Guid" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sended" Type="Boolean" Nullable="false" />
+    <Property Name="Server_Error_IsFinally" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Order_CustomerProducts" Relationship="WebMarket.com_dbModel.FK_Order_CustomerProducts_Order_CustomerAddress" FromRole="Order_CustomerAddress" ToRole="Order_CustomerProducts" />
+  </EntityType>
+  <EntityType Name="Order_CustomerProducts">
+    <Key>
+      <PropertyRef Name="Order_CustomerProductsID" />
+    </Key>
+    <Property Name="Order_CustomerProductsID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductID" Type="Int32" Nullable="false" />
+    <Property Name="Order_CustomerAddressID" Type="Int32" Nullable="false" />
+    <Property Name="Features" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Order_CustomerAddress" Relationship="WebMarket.com_dbModel.FK_Order_CustomerProducts_Order_CustomerAddress" FromRole="Order_CustomerProducts" ToRole="Order_CustomerAddress" />
+    <Property Name="Number" Type="Int32" Nullable="false" />
+    <Property Name="ProductName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Order_CustomerProducts_Order_CustomerAddress">
+    <End Type="WebMarket.com_dbModel.Order_CustomerAddress" Role="Order_CustomerAddress" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Type="WebMarket.com_dbModel.Order_CustomerProducts" Role="Order_CustomerProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Order_CustomerAddress">
+        <PropertyRef Name="Order_CustomerAddressID" />
+      </Principal>
+      <Dependent Role="Order_CustomerProducts">
+        <PropertyRef Name="Order_CustomerAddressID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
