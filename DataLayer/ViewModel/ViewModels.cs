@@ -8,6 +8,7 @@ using System.Web;
 
 namespace DataLayer
 {
+<<<<<<< HEAD
     public class NewsViewModel
     {
         [Display(Name = "متن خبر")]
@@ -19,6 +20,8 @@ namespace DataLayer
         [Display(Name = "تاریخ انتشار")]
         public string PublishDate { get; set; }
     }
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
     public class RegisterViewModel
     {
         [Display(Name = "نام کاربری")]

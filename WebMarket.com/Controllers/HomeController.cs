@@ -6,28 +6,37 @@ using System.Web.Mvc;
 using System.Web.Security;
 using DataLayer;
 using WebMarket.com.ZarinPal_MVC;
+<<<<<<< HEAD
 using DataLayer.Last;
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
 
 namespace WebMarket.com.Controllers
 {
     public class HomeController : Controller
     {
+<<<<<<< HEAD
         readonly Context _context;
         readonly Repository<NewsEntity> _repository;
         readonly NewsService _newsService;
 
 
 
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
         WebMarket_Entity db;
         ProductRepository productRepository;
         Order_CustomerAddressRepositiry order_CustomerRepositiry;
         public HomeController()
         {
+<<<<<<< HEAD
             _context = new Context();
             _repository = new Repository<NewsEntity>(_context);
             _newsService = new NewsService(_repository);
 
 
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
             db = new WebMarket_Entity();
             productRepository = new ProductRepository(db);
             order_CustomerRepositiry = new Order_CustomerAddressRepositiry(db);
@@ -88,7 +97,11 @@ namespace WebMarket.com.Controllers
                         }
                         else
                         {
+<<<<<<< HEAD
                             using (WebMarket_Entity db = new WebMarket_Entity())
+=======
+                            using (WebMarket_Entity db=new WebMarket_Entity())
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
                             {
                                 var order_customerAddress = db.Order_CustomerAddress.Find(id);
                                 order_customerAddress.Server_Error_IsFinally = true;
@@ -148,6 +161,7 @@ namespace WebMarket.com.Controllers
 
 
 
+<<<<<<< HEAD
         public ActionResult News()
         {
             var news = _newsService.GetAllNews().Select(n=>new NewsViewModel()
@@ -163,6 +177,8 @@ namespace WebMarket.com.Controllers
 
 
 
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
         //dispose area
         protected override void Dispose(bool disposing)
         {

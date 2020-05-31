@@ -17,6 +17,7 @@ C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.csproj
 C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.csproj.CopyComplete
 C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.dll
 C:\Users\Alireza\source\repos\WebMarket.com\DataLayer\obj\Debug\DataLayer.pdb
+<<<<<<< HEAD
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.dll.config
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.dll
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\DataLayer.pdb
@@ -37,3 +38,5 @@ C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\obj\Debug\DataLayer.pdb
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\Dapper.dll
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\DataLayer\bin\Debug\Dapper.xml
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3

@@ -81,6 +81,7 @@ C:\Users\Alireza\source\repos\WebMarket.com\WebMarket.com\bin\Microsoft.CodeDom.
 C:\Users\Alireza\source\repos\WebMarket.com\WebMarket.com\obj\Debug\WebMarket.com.csproj.CopyComplete
 C:\Users\Alireza\source\repos\WebMarket.com\WebMarket.com\obj\Debug\WebMarket.com.dll
 C:\Users\Alireza\source\repos\WebMarket.com\WebMarket.com\obj\Debug\WebMarket.com.pdb
+<<<<<<< HEAD
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\bin\WebMarket.com.dll.config
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\bin\WebMarket.com.dll
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\bin\WebMarket.com.pdb
@@ -167,3 +168,5 @@ C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\obj\De
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\obj\Debug\WebMarket.com.pdb
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\bin\Dapper.dll
 C:\Users\alire\source\repos\New folder\ASP.NET-MVC5--master\WebMarket.com\bin\Dapper.xml
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3

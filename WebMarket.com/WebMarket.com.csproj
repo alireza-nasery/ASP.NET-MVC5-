@@ -570,7 +570,10 @@
     <Content Include="assets\zocial\sample.html" />
     <Content Include="Areas\Admin\Views\DisplayOrders\DisplayOrdersPage.cshtml" />
     <Content Include="Areas\Admin\Views\DisplayOrders\OrderDetails.cshtml" />
+<<<<<<< HEAD
     <Content Include="Areas\Admin\Views\News\AboutNews.cshtml" />
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
     <None Include="Connected Services\ZarinPal_MVC\configuration91.svcinfo" />
     <None Include="Connected Services\ZarinPal_MVC\configuration.svcinfo" />
     <None Include="Connected Services\ZarinPal_MVC\Reference.svcmap">
@@ -1015,7 +1018,10 @@
     <Compile Include="Areas\Admin\Controllers\FeaturesAndGroupingController.cs" />
     <Compile Include="Areas\Admin\Controllers\GroupsController.cs" />
     <Compile Include="Areas\Admin\Controllers\HomeController.cs" />
+<<<<<<< HEAD
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
     <Compile Include="Areas\UserPanel\Controllers\HomeController.cs" />
     <Compile Include="Areas\UserPanel\UserPanelAreaRegistration.cs" />
     <Compile Include="Connected Services\ZarinPal_MVC\Reference.cs">
@@ -1524,7 +1530,10 @@
     <Content Include="Views\Shop\test.cshtml" />
     <Content Include="Views\Product\RelatedProduct.cshtml" />
     <Content Include="Views\Home\AboutWebSite.cshtml" />
+<<<<<<< HEAD
     <Content Include="Views\Home\News.cshtml" />
+=======
+>>>>>>> 770cb427c67960f8c83f0d679eb3924da8fdc4e3
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
