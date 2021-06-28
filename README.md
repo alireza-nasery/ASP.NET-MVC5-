@@ -2,17 +2,18 @@
 # ASP.NET-MVC5-
 ASP.NET MVC5 for create best  Online Stores
 # سورس فروشکاه اینترنتی حرفه ای با ASP.NET MVC5
-فروشگاه اینترنتی وب مارکت, فروشگاهی با تجهیزات کامل (محصولات مشابه-ارسال ایمیل تبلیغاتی-درگاه پرداخت-...),استفاده از متریال دیزاین و قدرتمند شده با جدید ترین ورژن دات نت , به صورت رایگان در گیت هاب قابل دانلود است
+Web market online store, a store with full equipment (similar products -sending promotional email-payment gateway-...), use of design and powerful materials with the latest version of .NET , can be downloaded for free on GitHub
 
-- برای مشاهدهکامل لایبرری های استفاده شده فایل وب مارکت داکیومنت را دانلود کنید
-- email : alirezanaseri383@yahoo.com
+- Download the dacion web market file to view the used labs completely
 
-# طریقه نصب
 
-1. کرده importرا در سرور خود WebMarket.com_db.bakفایل
-2. پروژه را در ویرایشگر خود باز کرده
-3. شده web.config داخل
-4. را با توجه به سرور خود تغییر دهیدconnection string 
+# Install
+
+1. Import on your WebMarket.com_db.bak file
+2. Opened the project in its editor
+3. open web.config file
+4. change connection string
+5. and restore and build project 
 =======
 
 # Features now
