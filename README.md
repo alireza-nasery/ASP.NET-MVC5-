@@ -14,7 +14,7 @@ Web market online store, a store with full equipment (similar products -sending 
 3. open web.config file
 4. change connection string
 5. and restore and build project 
-=======
+
 
 # Features now
 1. Add and change products
